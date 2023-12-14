@@ -1,0 +1,236 @@
+{
+  "Print to console": {
+    "prefix": "clg",
+    "body": ["console.log($1)"],
+    "description": "Log output to console"
+  },
+  "Print with label": {
+    "prefix": "clo",
+    "body": ["console.log('$1',$1)", "$2"],
+    "description": "Log output to console"
+  },
+  "Print string": {
+    "prefix": "cls",
+    "body": ["console.log('$1')"],
+    "description": "Log output to console"
+  },
+  "JavaScript map function with const": {
+    "prefix": "jmap",
+    "body": ["const ${1} = ${2}.map((${3}) => (", "\t$4", "))"],
+    "description": "JavaScript map function with const"
+  },
+  "JavaScript map function with filter": {
+    "prefix": "jfilter",
+    "body": ["const ${1} = ${2}.filter((${3}) => (", "\t$4", "))"],
+    "description": "JavaScript map function with filter"
+  },
+  "Javascript find function with const": {
+    "prefix": "jfind",
+    "body": ["const ${1} = ${2}.find((${3}) => (", "\t$4", "))"],
+    "description": "Javascript find function with const"
+  },
+  "JavaScript string parse": {
+    "prefix": "jparse",
+    "body": ["JSON.parse(${1})"],
+    "description": "JavaScript string parse"
+  },
+  "JavaScript string stringify": {
+    "prefix": "jsfy",
+    "body": ["JSON.stringify(${1})"],
+    "description": "JavaScript string stringify"
+  },
+  "React functional component": {
+    "prefix": "rfc",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t${1:${TM_FILENAME_BASE}}",
+      "\t\t</div>",
+      "\t);",
+      "}",
+      "export default ${1:${TM_FILENAME_BASE}};"
+    ],
+    "description": "React functional component"
+  },
+  "React functional component with props and destructuring": {
+    "prefix": "rfcep",
+    "body": [
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = ({${2}}) => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t${1:${TM_FILENAME_BASE}}",
+      "\t\t</div>",
+      "\t);",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "React functional component with props and destructuring"
+  },
+  "UseState": {
+    "prefix": "us",
+    "body": [
+      "const [${1:state}, set${1/(.*)/${1:/pascalcase}/}] = useState(${2:initialValue});"
+    ],
+    "description": "UseState"
+  },
+  "UseEffect": {
+    "prefix": "ue",
+    "body": ["useEffect(() => {", "\t$1", "}, [])"],
+    "description": "UseEffect"
+  },
+  "Object Desctructuring": {
+    "prefix": "od",
+    "body": ["const {${1}} = ${2};"],
+    "description": "Object Desctructuring"
+  },
+  "Anonymous function": {
+    "prefix": "anf",
+    "body": ["(${1}) => {", "\t$3", "}"],
+    "description": "Anonymous function"
+  },
+  "Arrow function": {
+    "prefix": "af",
+    "body": ["const ${1} = (${2}) => {", "\t$3", "}"],
+    "description": "Arrow function"
+  },
+  "JSX map function": {
+    "prefix": "rmap",
+    "body": ["{${1}.map((${2}) => (", "\t<div key={${3}}>${4}</div>", "))}"],
+    "description": "JSX map function"
+  },
+  "JSX filter function": {
+    "prefix": "rfilter",
+    "body": ["{${1}.filter((${2}) => (", "\t${3}", "))}"],
+    "description": "JSX filter function"
+  },
+  "JSX find function": {
+    "prefix": "rfind",
+    "body": ["{${1}.find((${2}) => (", "\t${3}", "))}"],
+    "description": "JSX find function"
+  },
+  "JSX ternary operator": {
+    "prefix": "rternary",
+    "body": ["{${1} ? ${2} : ${3}}"],
+    "description": "JSX ternary operator"
+  },
+
+  "Redux Slice": {
+    "prefix": "slice",
+    "body": [
+      "const initialState = {",
+      "\t${1}: [],",
+      "\tedit: false,",
+      "\tloading: false,",
+      "\tloadingParticular: false,",
+      "\tloadingUpdated: false,",
+      "\tloadingPatch: false,",
+      "\tcount: 0,",
+      "\tnext: \"\",",
+      "\tprevious: \"\",",
+      "};",
+      "export const ${TM_FILENAME_BASE}Slice = createSlice({",
+      "\tname: \"${TM_FILENAME_BASE}\",",
+      "\tinitialState,",
+      "\treducers: {",
+      "\t\tclearEdit${TM_FILENAME_BASE}: (state, action) => {",
+      "\t\t\tstate.${TM_FILENAME_BASE} = state.${1}.find(",
+      "\t\t\t\t(${2}) => ${2}.id === action.payload",
+      "\t\t\t);",
+      "\t\t\tstate.edit = false;",
+      "\t\t\tstate.loading.${1} = false;",
+      "\t\t},",
+      "\t\tedit${TM_FILENAME_BASE}: (state, action) => {",
+      "\t\t\tstate.edit = true;",
+      "\t\t\tstate.loading.${1} = false;",
+      "\t\t},",
+      "\t\t${TM_FILENAME_BASE}ClearData: (state, action) => {",
+      "\t\t\treturn void ((state.${TM_FILENAME_BASE} = null),",
+      "\t\t\t(state.edit = false),",
+      "\t\t\t(state.loading.${1} = false),",
+      "\t\t\t(state.${TM_FILENAME_BASE} = null));",
+      "\t\t},",
+      "\t},",
+      "});",
+      "export const { clearEdit${TM_FILENAME_BASE}, ${TM_FILENAME_BASE}ClearData, edit${TM_FILENAME_BASE} } =",
+      "\t${TM_FILENAME_BASE}Slice.actions;",
+      "",
+      "export default ${TM_FILENAME_BASE}Slice.reducer;"
+    ],
+    "description": "Redux Slice with filename as slice name"
+  },
+  "Redux Toolkit extraReducers": {
+    "prefix": "extraReducers",
+    "body": [
+      "extraReducers: (builder) => {",
+      "\tbuilder.addCase(${1:action}.pending, (state) => {",
+      "\t\tstate.${2:loadingState} = true;",
+      "\t});",
+      "\tbuilder.addCase(${1:action}.fulfilled, (state, action) => {",
+      "\t\tstate.${2:loadingState} = false;",
+      "\t\tstate.${3:stateProperty} = action.payload;",
+      "\t});",
+      "\tbuilder.addCase(${1:action}.rejected, (state) => {",
+      "\t\tstate.${2:loadingState} = false;",
+      "\t});",
+      "}"
+    ],
+    "description": "Redux Toolkit extraReducers"
+  },
+  "Redux Toolkit addMatcher": {
+    "prefix": "addMatcher",
+    "body": [
+      "builder.addMatcher(",
+      "\tisAnyOf(",
+      "\t\t${1:action1}.pending,",
+      "\t\t${2:action2}.pending,",
+      "\t\t${3:action3}.pending",
+      "\t),",
+      "\t(state) => {",
+      "\t\tstate.${4:loadingState} = true;",
+      "\t}",
+      ");",
+      "builder.addMatcher(",
+      "\tisAnyOf(",
+      "\t\t${1:action1}.fulfilled,",
+      "\t\t${2:action2}.fulfilled,",
+      "\t\t${3:action3}.fulfilled",
+      "\t),",
+      "\t(state, action) => {",
+      "\t\tstate.${5:stateProperty} = action.payload;",
+      "\t\tstate.${4:loadingState} = false;",
+      "\t}",
+      ");",
+      "builder.addMatcher(",
+      "\tisAnyOf(",
+      "\t\t${1:action1}.rejected,",
+      "\t\t${2:action2}.rejected,",
+      "\t\t${3:action3}.rejected",
+      "\t),",
+      "\t(state) => {",
+      "\t\tstate.${4:loadingState} = false;",
+      "\t}",
+      ");"
+    ],
+    "description": "Redux Toolkit addMatcher"
+  },
+  "Redux Toolkit createAsyncThunk": {
+    "prefix": "thunk",
+    "body": [
+      "export const ${1:actionName} = createAsyncThunk(",
+      "\t\"${2:actionType}\",",
+      "\tasync (_, { rejectWithValue }) => {",
+      "\t\ttry {",
+      "\t\t\tconst { data } = await ${3:apiFunction}();",
+      "\t\t\treturn data;",
+      "\t\t} catch (error) {",
+      "\t\t\treturn rejectWithValue(error);",
+      "\t\t}",
+      "\t}",
+      ");"
+    ],
+    "description": "Redux Toolkit createAsyncThunk"
+  }
+}
