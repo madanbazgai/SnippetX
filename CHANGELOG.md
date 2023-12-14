@@ -1,6 +1,10 @@
 ## [1.0.2](#)
 ### Documentation Added
 
+## [1.0.2](#) (2023-12-14)
+### Features
+ - **JSX and TSX**
+
 ## [1.0.1](#) (2023-12-03)
 ### Features & Bug Fixes
  - **More Snippets Added**
