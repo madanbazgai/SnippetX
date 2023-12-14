@@ -26,11 +26,11 @@
         "path": "./snippetx.json"
       },
       {
-        "language": "jsx",
+        "language": "javascriptreact",
         "path": "./snippetx.json"
       },
       {
-        "language": "tsx",
+        "language": "typescriptreact",
         "path": "./snippetx.json"
       },
       {
