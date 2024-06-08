@@ -9,8 +9,17 @@
     "vscode": "^1.84.0"
   },
   "categories": [
-    "Other"
+    "Snippets",
+    "Programming Languages"
   ],
+  "keywords": [
+    "snippets",
+    "javascript",
+    "typescript",
+    "react",
+    "web development"
+  ],
+  "license": "MIT",
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
@@ -38,15 +47,6 @@
         "path": "./snippetx.json"
       }
     ],
-    "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "snippetx",
-          "title": "SnippetX",
-          "icon": "media/icon.svg"
-        }
-      ]
-    },
     "views": {
       "snippetx": [
         {
