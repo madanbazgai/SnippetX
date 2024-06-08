@@ -20,17 +20,20 @@
 1. ### React Snippets
 
    - rfc
-   - rfcpe
+   - rfce
+   - arfce
    - us
    - ue
    - od
    - rmap
    - rfind
    - rfilter
+   - rtern
 
 2. ### Redux-Toolkit Snippets
 
-   - slice
-   - extraReducers
-   - addMatcher
-   - thunk
+   - usl
+   - udis
+   - red
+   - ered
+   - asthunk

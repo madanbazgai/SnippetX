@@ -53,21 +53,31 @@
     ],
     "description": "React functional component"
   },
-  "React functional component with props and destructuring": {
-    "prefix": "rfcep",
+  "React functional component with default export": {
+    "prefix": "rfc",
     "body": [
-      "",
-      "const ${1:${TM_FILENAME_BASE}} = ({${2}}) => {",
+      "export default function ${1:${TM_FILENAME_BASE}} () {",
       "\treturn (",
       "\t\t<div>",
       "\t\t\t${1:${TM_FILENAME_BASE}}",
       "\t\t</div>",
       "\t);",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
+      "}"
     ],
-    "description": "React functional component with props and destructuring"
+    "description": "React functional component with default export"
+  },
+  "Async react functional component": {
+    "prefix": "rfc",
+    "body": [
+      "export default async function ${1:${TM_FILENAME_BASE}} () {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t${1:${TM_FILENAME_BASE}}",
+      "\t\t</div>",
+      "\t);",
+      "}"
+    ],
+    "description": "Async react functional component"
   },
   "UseState": {
     "prefix": "us",
@@ -112,125 +122,66 @@
     "description": "JSX find function"
   },
   "JSX ternary operator": {
-    "prefix": "rternary",
+    "prefix": "rtern",
     "body": ["{${1} ? ${2} : ${3}}"],
     "description": "JSX ternary operator"
   },
 
-  "Redux Slice": {
-    "prefix": "slice",
+  "Redux useSelector": {
+    "prefix": "usl",
     "body": [
-      "const initialState = {",
-      "\t${1}: [],",
-      "\tedit: false,",
-      "\tloading: false,",
-      "\tloadingParticular: false,",
-      "\tloadingUpdated: false,",
-      "\tloadingPatch: false,",
-      "\tcount: 0,",
-      "\tnext: \"\",",
-      "\tprevious: \"\",",
-      "};",
-      "export const ${TM_FILENAME_BASE}Slice = createSlice({",
-      "\tname: \"${TM_FILENAME_BASE}\",",
-      "\tinitialState,",
-      "\treducers: {",
-      "\t\tclearEdit${TM_FILENAME_BASE}: (state, action) => {",
-      "\t\t\tstate.${TM_FILENAME_BASE} = state.${1}.find(",
-      "\t\t\t\t(${2}) => ${2}.id === action.payload",
-      "\t\t\t);",
-      "\t\t\tstate.edit = false;",
-      "\t\t\tstate.loading.${1} = false;",
-      "\t\t},",
-      "\t\tedit${TM_FILENAME_BASE}: (state, action) => {",
-      "\t\t\tstate.edit = true;",
-      "\t\t\tstate.loading.${1} = false;",
-      "\t\t},",
-      "\t\t${TM_FILENAME_BASE}ClearData: (state, action) => {",
-      "\t\t\treturn void ((state.${TM_FILENAME_BASE} = null),",
-      "\t\t\t(state.edit = false),",
-      "\t\t\t(state.loading.${1} = false),",
-      "\t\t\t(state.${TM_FILENAME_BASE} = null));",
-      "\t\t},",
-      "\t},",
-      "});",
-      "export const { clearEdit${TM_FILENAME_BASE}, ${TM_FILENAME_BASE}ClearData, edit${TM_FILENAME_BASE} } =",
-      "\t${TM_FILENAME_BASE}Slice.actions;",
-      "",
-      "export default ${TM_FILENAME_BASE}Slice.reducer;"
+      "const ${1:state} = useSelector((state) => state.${2:slice}.${3:data});"
     ],
-    "description": "Redux Slice with filename as slice name"
+    "description": "Redux useSelector"
   },
-  "Redux Toolkit extraReducers": {
-    "prefix": "extraReducers",
+  "Redux useDispatch": {
+    "prefix": "udis",
     "body": [
-      "extraReducers: (builder) => {",
-      "\tbuilder.addCase(${1:action}.pending, (state) => {",
-      "\t\tstate.${2:loadingState} = true;",
-      "\t});",
-      "\tbuilder.addCase(${1:action}.fulfilled, (state, action) => {",
-      "\t\tstate.${2:loadingState} = false;",
-      "\t\tstate.${3:stateProperty} = action.payload;",
-      "\t});",
-      "\tbuilder.addCase(${1:action}.rejected, (state) => {",
-      "\t\tstate.${2:loadingState} = false;",
-      "\t});",
+      "const dispatch = useDispatch();",
+      "dispatch(${1:action}(${2:payload}));"
+    ],
+    "description": "Redux useDispatch"
+  },
+  "Redux reducer": {
+    "prefix": "red",
+    "body": [
+      "${1:name} : (state,action) => {",
+      "state.${2:name2} = ${3:name3};",
       "}"
     ],
-    "description": "Redux Toolkit extraReducers"
+    "description": "Redux reducer"
   },
-  "Redux Toolkit addMatcher": {
-    "prefix": "addMatcher",
+  "Redux extra reducers": {
+    "prefix": "ered",
     "body": [
-      "builder.addMatcher(",
-      "\tisAnyOf(",
-      "\t\t${1:action1}.pending,",
-      "\t\t${2:action2}.pending,",
-      "\t\t${3:action3}.pending",
-      "\t),",
-      "\t(state) => {",
-      "\t\tstate.${4:loadingState} = true;",
-      "\t}",
-      ");",
-      "builder.addMatcher(",
-      "\tisAnyOf(",
-      "\t\t${1:action1}.fulfilled,",
-      "\t\t${2:action2}.fulfilled,",
-      "\t\t${3:action3}.fulfilled",
-      "\t),",
-      "\t(state, action) => {",
-      "\t\tstate.${5:stateProperty} = action.payload;",
-      "\t\tstate.${4:loadingState} = false;",
-      "\t}",
-      ");",
-      "builder.addMatcher(",
-      "\tisAnyOf(",
-      "\t\t${1:action1}.rejected,",
-      "\t\t${2:action2}.rejected,",
-      "\t\t${3:action3}.rejected",
-      "\t),",
-      "\t(state) => {",
-      "\t\tstate.${4:loadingState} = false;",
-      "\t}",
-      ");"
+      "builder.addCase(${1:action}.pending, (state, action) => {",
+      "state.${2:name} = ${3:name}",
+      "})",
+      "builder.addCase(${1:action}.fulfilled, (state, action) => {",
+      "state.${2:name} = ${3:name}",
+      "})",
+      "builder.addCase(${1:action}.rejected, (state, action) => {",
+      "state.${2:name} = ${3:name}",
+      "})"
     ],
-    "description": "Redux Toolkit addMatcher"
+    "description": "Redux extra reducers"
   },
-  "Redux Toolkit createAsyncThunk": {
-    "prefix": "thunk",
+  "Redux createAsyncThunk": {
+    "prefix": "asthunk",
     "body": [
-      "export const ${1:actionName} = createAsyncThunk(",
-      "\t\"${2:actionType}\",",
-      "\tasync (_, { rejectWithValue }) => {",
-      "\t\ttry {",
-      "\t\t\tconst { data } = await ${3:apiFunction}();",
-      "\t\t\treturn data;",
-      "\t\t} catch (error) {",
-      "\t\t\treturn rejectWithValue(error);",
-      "\t\t}",
-      "\t}",
+      "export const ${1:action} = createAsyncThunk(",
+        "'${2:slice}/${1:action}',",
+        "async (${3:payload},{rejectWithValue}) => {",
+          "const {${4:data}}= {${3:payload}};",
+          "try {",
+            "const {data} = await API.${5:api}(${6:values});",
+            "return data;",
+          "} catch (error) {",
+            "return rejectWithValue(error);",
+          "}",
+        "}",
       ");"
-    ],
-    "description": "Redux Toolkit createAsyncThunk"
+
+    ]
   }
 }

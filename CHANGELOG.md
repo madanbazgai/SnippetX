@@ -1,3 +1,6 @@
+## [1.1](#) (2024-08-06)
+### Added more snippets
+
 ## [1.0.2](#)
 ### Documentation Added
 
