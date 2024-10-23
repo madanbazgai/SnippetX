@@ -1,3 +1,6 @@
+## [1.1](#) (2024-10-23)
+### Added two new snippets for React Native
+
 ## [1.1](#) (2024-08-06)
 ### Added more snippets
 

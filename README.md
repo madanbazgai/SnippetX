@@ -22,7 +22,7 @@
 
    - [rfc](#rfc)
    - [rfce](#rfce)
-   - [arfce](#arfce)
+   - [rfca](#rfca)
    - [us](#us)
    - [ue](#ue)
    - [od](#od)
@@ -38,6 +38,11 @@
    - [red](#red)
    - [ered](#ered)
    - [asthunk](#asthunk)
+
+3. ### [React-Native Snippets](#3-react-native-snippets)
+
+   - [rnf](#rnf)
+   - [rnfs](#rnfs)
 
 <br/>
 
@@ -116,7 +121,7 @@
   }
   ```
 
-- #### **arfce**
+- #### **rfca**
 
   ```javascript
   export default async function App() {
@@ -230,3 +235,47 @@
     }
   );
   ```
+
+## 3. React-Native Snippets
+
+- #### **rnf**
+
+  ```javascript
+  import React, { Component } from "react";
+  import { View, Text } from "react-native";
+
+  export default class App extends Component {
+    render() {
+      return (
+        <View>
+          <Text>App</Text>
+        </View>
+      );
+    }
+  }
+  ```
+
+- #### **rnfs**
+
+  ```jsx
+  import React, { Component } from "react";
+  import { View, Text, StyleSheet } from "react-native";
+
+  export default class App extends Component {
+    render() {
+      return (
+        <View>
+          <Text>App</Text>
+        </View>
+      );
+    }
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });

@@ -54,7 +54,7 @@
     "description": "React functional component"
   },
   "React functional component with default export": {
-    "prefix": "rfc",
+    "prefix": "rfce",
     "body": [
       "export default function ${1:${TM_FILENAME_BASE}} () {",
       "\treturn (",
@@ -67,7 +67,7 @@
     "description": "React functional component with default export"
   },
   "Async react functional component": {
-    "prefix": "rfc",
+    "prefix": "rfca",
     "body": [
       "export default async function ${1:${TM_FILENAME_BASE}} () {",
       "\treturn (",
@@ -183,5 +183,51 @@
       ");"
 
     ]
+  },
+
+  "React Native component": {
+    "prefix": "rnf",
+    "body": [
+      "import React, { Component } from 'react';",
+      "import { View, Text } from 'react-native';",
+      "",
+      "export default class ${1:${TM_FILENAME_BASE}} extends Component {",
+        "render() {",
+          "return (",
+            "<View>",
+              "<Text>${2:text}</Text>",
+            "</View>",
+          ");",
+        "}",
+      "}"
+    ],
+    "description": "React Native component"
+  },
+  "React Native component with styles": {
+    "prefix": "rnfs",
+    "body": [
+      "import React, { Component } from 'react';",
+      "import { View, Text, StyleSheet } from 'react-native';",
+      "",
+      "export default class ${1:${TM_FILENAME_BASE}} extends Component {",
+        "render() {",
+          "return (",
+            "<View>",
+              "<Text>${2:text}</Text>",
+            "</View>",
+          ");",
+        "}",
+      "}",
+      "",
+      "const styles = StyleSheet.create({",
+        "container: {",
+          "flex: 1,",
+          "backgroundColor: '#fff',",
+          "alignItems: 'center',",
+          "justifyContent: 'center',",
+        "},",
+      "});"
+    ],
+    "description": "React Native component with styles"
   }
 }
