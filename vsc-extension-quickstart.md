@@ -1,8 +1,9 @@
 # Welcome to SnippetX
+### React | Javascript | Redux | Tanstack | Zustand | React-Native | ShadCn
 
-- This is simple and minimal extension alternative to ES7+ React/Redux/React-Native snippets
-- No unnecessary snippets.
-- Only useful snippets.
+- Simple and minimal
+- No nonsense.
+- Better alternative of ES7+ React/Redux/React-Native
 
 ## Features
 
@@ -21,7 +22,7 @@
 
    - rfc
    - rfce
-   - arfce
+   - rfca
    - us
    - ue
    - od
@@ -37,3 +38,23 @@
    - red
    - ered
    - asthunk
+
+3. ### React-Native Snippets
+
+   - rnf
+   - rnfs
+
+4. ### Zustand Snippets
+
+   - zs
+
+
+5. ### Tanstack Snippets
+
+   - tcq
+   - tuq
+   - tcm
+   - tum
+
+
+6. ### ShadCn Snippets
