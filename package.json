@@ -2,7 +2,7 @@
   "name": "snippetx",
   "displayName": "SnippetX",
   "description": "Most useful vscode snippets by madanbazgai",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "publisher": "madanbazgai",
   "icon": "media/icon.png",
   "engines": {
@@ -21,7 +21,7 @@
   ],
   "license": "MIT",
   "activationEvents": [],
-  "main": "./extension.js",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
@@ -57,14 +57,19 @@
     }
   },
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "vscode:prepublish": "bun run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "bun run compile && bun run lint",
+    "lint": "eslint src --ext ts",
+    "test": "bun ./out/test/runTest.js"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.3",
     "@types/node": "18.x",
     "@types/vscode": "^1.84.0",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
     "@vscode/test-electron": "^2.3.6",
     "eslint": "^8.52.0",
     "glob": "^10.3.10",

@@ -1,24 +1,26 @@
 # Welcome to SnippetX
-### React | Javascript | Redux | Tanstack | Zustand | React-Native | ShadCn
 
-- Simple and minimal
+### JavaScript | React | React-Native | Expo Router | Zustand | Tanstack Query | Redux-Toolkit | ShadCn
+
+- Simple, minimal
+- Mostly used snippets.
 - No nonsense.
 - Better alternative of ES7+ React/Redux/React-Native
 
 ## Features
 
-0. ### JavaScript Snippets
+1. ### JavaScript Snippets
 
    - clg
    - clo
    - cls
    - jmap
    - jfilter
-   - jsfy
    - jfind
    - jparse
+   - jsfy
 
-1. ### React Snippets
+2. ### React Snippets
 
    - rfc
    - rfce
@@ -27,11 +29,37 @@
    - ue
    - od
    - rmap
-   - rfind
    - rfilter
+   - rfind
    - rtern
 
-2. ### Redux-Toolkit Snippets
+3. ### React-Native Snippets
+
+   - rnf
+   - rnfs
+
+4. ### Expo Router Snippets
+
+   - ers
+   - ert
+   - erd
+   - ertl
+   - ersl
+   - erdl
+
+5. ### Zustand Snippets
+
+   - zs
+   - zu
+
+6. ### Tanstack Query Snippets
+
+   - tcq
+   - tuq
+   - tcm
+   - tum
+
+7. ### Redux-Toolkit Snippets
 
    - usl
    - udis
@@ -39,22 +67,15 @@
    - ered
    - asthunk
 
-3. ### React-Native Snippets
+8. ### ShadCn Snippets
 
-   - rnf
-   - rnfs
-
-4. ### Zustand Snippets
-
-   - zs
-
-
-5. ### Tanstack Snippets
-
-   - tcq
-   - tuq
-   - tcm
-   - tum
-
-
-6. ### ShadCn Snippets
+   - snibutton
+   - snbutton
+   - snicard
+   - sncard
+   - sniinput
+   - sninput
+   - snidialog
+   - sndialog
+   - sniform
+   - snformfield

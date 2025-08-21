@@ -170,64 +170,419 @@
     "prefix": "asthunk",
     "body": [
       "export const ${1:action} = createAsyncThunk(",
-        "'${2:slice}/${1:action}',",
-        "async (${3:payload},{rejectWithValue}) => {",
-          "const {${4:data}}= {${3:payload}};",
-          "try {",
-            "const {data} = await API.${5:api}(${6:values});",
-            "return data;",
-          "} catch (error) {",
-            "return rejectWithValue(error);",
-          "}",
-        "}",
+      "\t'${2:slice}/${1:action}',",
+      "\tasync (${3:payload},{rejectWithValue}) => {",
+      "\t\tconst {${4:data}}= {${3:payload}};",
+      "\t\ttry {",
+      "\t\t\tconst {data} = await API.${5:api}(${6:values});",
+      "\t\t\treturn data;",
+      "\t\t} catch (error) {",
+      "\t\t\treturn rejectWithValue(error);",
+      "\t\t}",
+      "\t}",
       ");"
-
-    ]
+    ],
+    "description": "Redux createAsyncThunk"
   },
 
   "React Native component": {
     "prefix": "rnf",
     "body": [
-      "import React, { Component } from 'react';",
       "import { View, Text } from 'react-native';",
       "",
-      "export default class ${1:${TM_FILENAME_BASE}} extends Component {",
-        "render() {",
-          "return (",
-            "<View>",
-              "<Text>${2:text}</Text>",
-            "</View>",
-          ");",
-        "}",
-      "}"
+      "export default function ${1:${TM_FILENAME_BASE}}(){",
+      "\treturn (",
+      "\t\t<View>",
+      "\t\t\t<Text>${1:${TM_FILENAME_BASE}}</Text>",
+      "\t\t</View>",
+      "\t);",
+      "};"
     ],
     "description": "React Native component"
   },
   "React Native component with styles": {
     "prefix": "rnfs",
     "body": [
-      "import React, { Component } from 'react';",
       "import { View, Text, StyleSheet } from 'react-native';",
       "",
-      "export default class ${1:${TM_FILENAME_BASE}} extends Component {",
-        "render() {",
-          "return (",
-            "<View>",
-              "<Text>${2:text}</Text>",
-            "</View>",
-          ");",
-        "}",
-      "}",
+      "export default function ${1:${TM_FILENAME_BASE}}(){",
+      "\treturn (",
+      "\t\t<View style={styles.container}>",
+      "\t\t\t<Text>${1:${TM_FILENAME_BASE}}</Text>",
+      "\t\t</View>",
+      "\t);",
+      "};",
       "",
       "const styles = StyleSheet.create({",
-        "container: {",
-          "flex: 1,",
-          "backgroundColor: '#fff',",
-          "alignItems: 'center',",
-          "justifyContent: 'center',",
-        "},",
+      "\tcontainer: {",
+      "\t\tflex: 1,",
+      "\t\tbackgroundColor: '#fff',",
+      "\t\talignItems: 'center',",
+      "\t\tjustifyContent: 'center',",
+      "\t},",
       "});"
     ],
     "description": "React Native component with styles"
+  },
+  "Expo Router Tab Layout Component": {
+    "prefix": "ertl",
+    "body": [
+      "import { Tabs } from 'expo-router';",
+      "import { Ionicons } from '@expo/vector-icons';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}Layout() {",
+      "\treturn (",
+      "\t\t<Tabs",
+      "\t\t\tscreenOptions={{",
+      "\t\t\t\ttabBarActiveTintColor: '#007AFF',",
+      "\t\t\t\theaderShown: false,",
+      "\t\t\t}}",
+      "\t\t>",
+      "\t\t\t<Tabs.Screen",
+      "\t\t\t\tname=\"${2:index}\"",
+      "\t\t\t\toptions={{",
+      "\t\t\t\t\ttitle: '${3:Home}',",
+      "\t\t\t\t\ttabBarIcon: ({ color, size }) => (",
+      "\t\t\t\t\t\t<Ionicons name=\"home-outline\" size={size} color={color} />",
+      "\t\t\t\t\t),",
+      "\t\t\t\t}}",
+      "\t\t\t/>",
+      "\t\t\t<Tabs.Screen",
+      "\t\t\t\tname=\"${4:settings}\"",
+      "\t\t\t\toptions={{",
+      "\t\t\t\t\ttitle: '${5:Settings}',",
+      "\t\t\t\t\ttabBarIcon: ({ color, size }) => (",
+      "\t\t\t\t\t\t<Ionicons name=\"settings-outline\" size={size} color={color} />",
+      "\t\t\t\t\t),",
+      "\t\t\t\t}}",
+      "\t\t\t/>",
+      "\t\t</Tabs>",
+      "\t);",
+      "}"
+    ],
+    "description": "Expo Router Tab Layout Component"
+  },
+  "Expo Router Stack Layout Component": {
+    "prefix": "ersl",
+    "body": [
+      "import { Stack } from 'expo-router';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}Layout() {",
+      "\treturn (",
+      "\t\t<Stack",
+      "\t\t\tscreenOptions={{",
+      "\t\t\t\theaderStyle: {",
+      "\t\t\t\t\tbackgroundColor: '#007AFF',",
+      "\t\t\t\t},",
+      "\t\t\t\theaderTintColor: '#fff',",
+      "\t\t\t\theaderTitleStyle: {",
+      "\t\t\t\t\tfontWeight: 'bold',",
+      "\t\t\t\t},",
+      "\t\t\t}}",
+      "\t\t>",
+      "\t\t\t<Stack.Screen name=\"${2:index}\" options={{ title: '${3:Home}' }} />",
+      "\t\t\t<Stack.Screen name=\"${4:details}\" options={{ title: '${5:Details}' }} />",
+      "\t\t</Stack>",
+      "\t);",
+      "}"
+    ],
+    "description": "Expo Router Stack Layout Component"
+  },
+  "Expo Router Drawer Layout Component": {
+    "prefix": "erdl",
+    "body": [
+      "import { Drawer } from 'expo-router/drawer';",
+      "import { Ionicons } from '@expo/vector-icons';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}Layout() {",
+      "\treturn (",
+      "\t\t<Drawer",
+      "\t\t\tscreenOptions={{",
+      "\t\t\t\tdrawerActiveTintColor: '#007AFF',",
+      "\t\t\t\tdrawerInactiveTintColor: '#8E8E93',",
+      "\t\t\t\theaderShown: true,",
+      "\t\t\t}}",
+      "\t\t>",
+      "\t\t\t<Drawer.Screen",
+      "\t\t\t\tname=\"${2:index}\"",
+      "\t\t\t\toptions={{",
+      "\t\t\t\t\ttitle: '${3:Home}',",
+      "\t\t\t\t\tdrawerLabel: '${3:Home}',",
+      "\t\t\t\t\tdrawerIcon: ({ color, size }) => (",
+      "\t\t\t\t\t\t<Ionicons name=\"home-outline\" size={size} color={color} />",
+      "\t\t\t\t\t),",
+      "\t\t\t\t}}",
+      "\t\t\t/>",
+      "\t\t\t<Drawer.Screen",
+      "\t\t\t\tname=\"${4:settings}\"",
+      "\t\t\t\toptions={{",
+      "\t\t\t\t\ttitle: '${5:Settings}',",
+      "\t\t\t\t\tdrawerLabel: '${5:Settings}',",
+      "\t\t\t\t\tdrawerIcon: ({ color, size }) => (",
+      "\t\t\t\t\t\t<Ionicons name=\"settings-outline\" size={size} color={color} />",
+      "\t\t\t\t\t),",
+      "\t\t\t\t}}",
+      "\t\t\t/>",
+      "\t\t\t<Drawer.Screen",
+      "\t\t\t\tname=\"${6:profile}\"",
+      "\t\t\t\toptions={{",
+      "\t\t\t\t\ttitle: '${7:Profile}',",
+      "\t\t\t\t\tdrawerLabel: '${7:Profile}',",
+      "\t\t\t\t\tdrawerIcon: ({ color, size }) => (",
+      "\t\t\t\t\t\t<Ionicons name=\"person-outline\" size={size} color={color} />",
+      "\t\t\t\t\t),",
+      "\t\t\t\t}}",
+      "\t\t\t/>",
+      "\t\t</Drawer>",
+      "\t);",
+      "}"
+    ],
+    "description": "Expo Router Drawer Layout Component"
+  },
+
+  "Zustand store": {
+    "prefix": "zs",
+    "body": [
+      "import { create } from 'zustand';",
+      "import { persist } from 'zustand/middleware';",
+      "",
+      "export type Status = 'TODO' | 'IN_PROGRESS' | 'DONE';",
+      "",
+      "export type Task = {",
+      "\tid: string | number;",
+      "\ttitle: string;",
+      "\tdescription?: string;",
+      "\tstatus: Status;",
+      "};",
+      "",
+      "export type State = {",
+      "\ttasks: Task[];",
+      "}",
+      "",
+      "export type Actions = {",
+      "\taddTask: (title: string, description?: string) => void;",
+      "\tremoveTask: (id: string) => void;",
+      "};",
+      "",
+      "export const useTaskStore = create<State & Actions>()(",
+      "\tpersist(",
+      "\t\t(set) => ({",
+      "\t\t\ttasks: [],",
+      "",
+      "\t\t\taddTask: (title: string, description?: string) =>",
+      "\t\t\t\tset((state) => ({",
+      "\t\t\t\t\ttasks: [...state.tasks, { id: '1', title, description, status: 'TODO' }]",
+      "\t\t\t\t})),",
+      "",
+      "\t\t\tremoveTask: (id: string) =>",
+      "\t\t\t\tset((state) => ({",
+      "\t\t\t\t\ttasks: state.tasks.filter((task) => task.id !== id)",
+      "\t\t\t\t})),",
+      "\t\t}),",
+      "",
+      "\t\t{ name: 'task-store', skipHydration: true }",
+      "\t)",
+      ");"
+    ],
+    "description": "Zustand store"
+  },
+  "Zustand use store": {
+    "prefix": "zu",
+    "body": [
+      "const { ${1:tasks}, ${2:addTask}, ${3:removeTask} } = useTaskStore();"
+    ],
+    "description": "Zustand use store"
+  },
+
+  "Tanstack create query": {
+    "prefix": "tcq",
+    "body": [
+      "export const useGetAll${1:Users}Api = () => {",
+      "\treturn useQuery({",
+      "\t\tqueryKey: ['${2:user}'],",
+      "\t\tqueryFn: async () => await fetch('/api/${3:users}').then((res) => res.json()),",
+      "\t});",
+      "};"
+    ],
+    "description": "Tanstack create query"
+  },
+  "Tanstack use query": {
+    "prefix": "tuq",
+    "body": ["const { data, isLoading, error } = useGetAll${1:Users}Api();"],
+    "description": "Tanstack use query"
+  },
+  "Tanstack create mutation": {
+    "prefix": "tcm",
+    "body": [
+      "export const useCreate${1:User}Api = () => {",
+      "\treturn useMutation({",
+      "\t\tmutationFn: async (body: ${2:User}SchemaData) => {",
+      "\t\t\treturn await fetch('/api/${3:users}', {",
+      "\t\t\t\tmethod: 'POST',",
+      "\t\t\t\tbody: JSON.stringify(body),",
+      "\t\t\t\theaders: {",
+      "\t\t\t\t\t'Content-Type': 'application/json',",
+      "\t\t\t\t},",
+      "\t\t\t}).then((res) => res.json());",
+      "\t\t},",
+      "\t\tonSuccess: (data, variables, context) => {",
+      "\t\t\t// toast.success('${4:User} created successfully');",
+      "\t\t\treturn data;",
+      "\t\t},",
+      "\t\tonError: (error, variables, context) => {",
+      "\t\t\t// toast.error(error.message);",
+      "\t\t},",
+      "\t});",
+      "};"
+    ],
+    "description": "Tanstack create mutation"
+  },
+  "Tanstack use mutation": {
+    "prefix": "tum",
+    "body": ["const { mutate } = useCreate${1:User}Api();"],
+    "description": "Tanstack use mutation"
+  },
+
+  "ShadCN Button import": {
+    "prefix": "snibutton",
+    "body": ["import { Button } from '@/components/ui/button'"],
+    "description": "ShadCN Button import"
+  },
+  "ShadCN Button": {
+    "prefix": "snbutton",
+    "body": ["<Button variant=\"${1:default}\">${2:Button}</Button>"],
+    "description": "ShadCN Button"
+  },
+  "ShadCN Card import": {
+    "prefix": "snicard",
+    "body": [
+      "import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'"
+    ],
+    "description": "ShadCN Card import"
+  },
+  "ShadCN Card": {
+    "prefix": "sncard",
+    "body": [
+      "<Card>",
+      "\t<CardHeader>",
+      "\t\t<CardTitle>${1:Card Title}</CardTitle>",
+      "\t\t<CardDescription>${2:Card Description}</CardDescription>",
+      "\t</CardHeader>",
+      "\t<CardContent>",
+      "\t\t${3:Card Content}",
+      "\t</CardContent>",
+      "\t<CardFooter>",
+      "\t\t${4:Card Footer}",
+      "\t</CardFooter>",
+      "</Card>"
+    ],
+    "description": "ShadCN Card"
+  },
+  "ShadCN Input import": {
+    "prefix": "sniinput",
+    "body": ["import { Input } from '@/components/ui/input'"],
+    "description": "ShadCN Input import"
+  },
+  "ShadCN Input": {
+    "prefix": "sninput",
+    "body": ["<Input type=\"${1:text}\" placeholder=\"${2:Enter text...}\" />"],
+    "description": "ShadCN Input"
+  },
+  "ShadCN Dialog import": {
+    "prefix": "snidialog",
+    "body": [
+      "import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'"
+    ],
+    "description": "ShadCN Dialog import"
+  },
+  "ShadCN Dialog": {
+    "prefix": "sndialog",
+    "body": [
+      "<Dialog>",
+      "\t<DialogTrigger asChild>",
+      "\t\t<Button variant=\"outline\">${1:Open Dialog}</Button>",
+      "\t</DialogTrigger>",
+      "\t<DialogContent>",
+      "\t\t<DialogHeader>",
+      "\t\t\t<DialogTitle>${2:Dialog Title}</DialogTitle>",
+      "\t\t\t<DialogDescription>${3:Dialog Description}</DialogDescription>",
+      "\t\t</DialogHeader>",
+      "\t\t${4:Dialog Content}",
+      "\t\t<DialogFooter>",
+      "\t\t\t${5:Dialog Footer}",
+      "\t\t</DialogFooter>",
+      "\t</DialogContent>",
+      "</Dialog>"
+    ],
+    "description": "ShadCN Dialog"
+  },
+  "ShadCN Form import": {
+    "prefix": "sniform",
+    "body": [
+      "import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'"
+    ],
+    "description": "ShadCN Form import"
+  },
+  "ShadCN Form Field": {
+    "prefix": "snformfield",
+    "body": [
+      "<FormField",
+      "\tcontrol={form.control}",
+      "\tname=\"${1:fieldName}\"",
+      "\trender={({ field }) => (",
+      "\t\t<FormItem>",
+      "\t\t\t<FormLabel>${2:Label}</FormLabel>",
+      "\t\t\t<FormControl>",
+      "\t\t\t\t<Input placeholder=\"${3:placeholder}\" {...field} />",
+      "\t\t\t</FormControl>",
+      "\t\t\t<FormDescription>",
+      "\t\t\t\t${4:Form description}",
+      "\t\t\t</FormDescription>",
+      "\t\t\t<FormMessage />",
+      "\t\t</FormItem>",
+      "\t)}",
+      "/>"
+    ],
+    "description": "ShadCN Form Field"
+  },
+
+  "Expo Router Stack Layout": {
+    "prefix": "ers",
+    "body": [
+      "import { Stack } from 'expo-router';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}Layout() {",
+      "\treturn (",
+      "\t\t<Stack/>",
+      "\t);",
+      "}"
+    ],
+    "description": "Expo Router Stack Layout"
+  },
+  "Expo Router Tab Layout": {
+    "prefix": "ert",
+    "body": [
+      "import { Tabs } from 'expo-router';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}Layout() {",
+      "\treturn (",
+      "\t\t<Tabs/>",
+      "\t);",
+      "}"
+    ],
+    "description": "Expo Router Tab Layout"
+  },
+  "Expo Router Drawer Layout": {
+    "prefix": "erd",
+    "body": [
+      "import { Drawer } from 'expo-router/drawer';",
+      "",
+      "export default function ${1:${TM_FILENAME_BASE}}Layout() {",
+      "\treturn (",
+      "\t\t<Drawer/>",
+      "\t);",
+      "}"
+    ],
+    "description": "Expo Router Drawer Layout"
   }
 }
